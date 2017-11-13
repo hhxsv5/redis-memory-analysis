@@ -2,7 +2,7 @@
   "name": "hhxsv5/redis-memory-analysis",
   "type": "library",
   "license": "MIT",
-  "description": ".",
+  "description": "Analyzing memory of redis is to find the keys(prefix) which used a lot of memory, export the analysis result into csv file.",
   "keywords": [
     "redis-memory-analysis",
     "redis",
