@@ -1,7 +1,7 @@
 Redis memory analysis
 ======
 
-Analyzing memory of redis is to find the keys which used a lot of memory.
+Analyzing memory of redis is to find the keys(prefix) which used a lot of memory.
 
 ## Requirements
 
@@ -27,8 +27,12 @@ $analyze = new \RMA\AnalyzeRedis('127.0.0.1', 6379, '123456');
 $analyze->start(['#', '*', '|']);
 
 //Find the csv file in default target folder: ./reports
+//csv file name format: redis-analysis-{host}-{port}-{db}.csv
 $analyze->saveReport();
 ```
+
+![CSV](https://raw.githubusercontent.com/hhxsv5/redis-memory-analysis/master/examples/sse.png)
+
 
 ## License
 
