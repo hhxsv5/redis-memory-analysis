@@ -1,6 +1,6 @@
 <?php
 
-namespace RMA;
+namespace Hhxsv5\RMA;
 
 
 use Predis\Client;
