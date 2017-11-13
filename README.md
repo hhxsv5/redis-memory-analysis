@@ -1,7 +1,7 @@
 Redis memory analysis
 ======
 
-Analyzing memory of redis is to find the keys(prefix) which used a lot of memory.
+Analyzing memory of redis is to find the keys(prefix) which used a lot of memory, export the analysis result into csv file.
 
 ## Requirements
 
@@ -21,13 +21,16 @@ composer require "hhxsv5/redis-memory-analysis:~1.0" -vvv
 ```PHP
 include '../vendor/autoload.php';
 
-$analyze = new \RMA\AnalyzeRedis('127.0.0.1', 6379, '123456');
+use Hhxsv5\RMA\AnalyzeRedis;
+
+$analyze = new AnalyzeRedis('127.0.0.1', 6379);
 
 //Scan the keys which can be split by '#' '*' '|'
 $analyze->start(['#', '*', '|']);
 
 //Find the csv file in default target folder: ./reports
-//csv file name format: redis-analysis-{host}-{port}-{db}.csv
+//CSV file name format: redis-analysis-{host}-{port}-{db}.csv
+//The keys order by count desc
 $analyze->saveReport();
 ```
 

@@ -9,4 +9,6 @@ $analyze = new AnalyzeRedis('127.0.0.1', 6379);
 $analyze->start(['#', '*', '|']);
 
 //Find the csv file in default target folder: ./reports
+//CSV file name format: redis-analysis-{host}-{port}-{db}.csv
+//The keys order by count desc
 $analyze->saveReport();
