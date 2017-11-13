@@ -31,7 +31,7 @@ $analyze->start(['#', '*', '|']);
 $analyze->saveReport();
 ```
 
-![CSV](https://raw.githubusercontent.com/hhxsv5/redis-memory-analysis/master/examples/sse.png)
+![CSV](https://raw.githubusercontent.com/hhxsv5/redis-memory-analysis/master/examples/demo.png)
 
 
 ## License
