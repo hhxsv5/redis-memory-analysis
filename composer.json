@@ -1,0 +1,30 @@
+{
+  "name": "hhxsv5/redis-memory-analysis",
+  "type": "library",
+  "license": "MIT",
+  "description": ".",
+  "keywords": [
+    "redis-memory-analysis",
+    "redis",
+    "memory",
+    "analysis",
+    "usage"
+  ],
+  "homepage": "https://github.com/hhxsv5/redis-memory-analysis",
+  "authors": [
+    {
+      "name": "Xie Biao",
+      "email": "hhxsv5@sina.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "ext-redis": ">=2.8.0",
+    "predis/predis": "~1.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hhxsv5\\RMA\\": "src"
+    }
+  }
+}
