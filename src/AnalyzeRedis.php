@@ -25,7 +25,7 @@ class AnalyzeRedis
      */
     private $report = [];
 
-    public function __construct($host, $port, $password)
+    public function __construct($host, $port, $password = null)
     {
         $this->host = $host;
         $this->port = $port;
