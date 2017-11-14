@@ -69,15 +69,22 @@ class AnalyzeRedis
 
             $it = null;
             do {
-                $keys = $this->redis->scan($it, '*[' . implode('', $delimiters) . ']*', 3000);
+                $keys = $this->redis->scan($it, '*[' . implode('', $delimiters) . ']*', $limit);
                 if ($keys) {
                     foreach ($keys as $key) {
-                        $countKey = null;
+                        $sortDelimiters = [];
                         foreach ($delimiters as $delimiter) {
-                            $pieces = explode($delimiter, $key);
-                            if (count($pieces) > 1) {
-                                $countKey = $pieces[0] . $delimiter . '*';
+                            $pos = strpos($key, $delimiter);
+                            if ($pos !== false) {
+                                $sortDelimiters[$pos] = $delimiter;
                             }
+                        }
+                        ksort($sortDelimiters, SORT_NUMERIC);
+
+                        $countKey = null;
+                        foreach ($sortDelimiters as $delimiter) {
+                            $pieces = explode($delimiter, $key);
+                            $countKey = $pieces[0] . $delimiter . '*';
                             break;
                         }
 
