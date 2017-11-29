@@ -31,20 +31,22 @@ class AnalyzeRedis
         $this->port = $port;
         $this->redis = new \Redis();
         $this->redis->connect($host, $port);
-        if ($password) {
+        $usePassword = strlen($password) > 0;
+        if ($usePassword) {
             $this->redis->auth($password);
         }
 
-        //For command: debug object <key>
-        $this->predis = new Client([
+        //Predis can exec the command: debug object <key>
+        $params = [
             'scheme' => 'tcp',
             'host'   => $host,
             'port'   => $port,
-        ], [
-            'parameters' => [
-                'password' => $password,
-            ],
-        ]);
+        ];
+        $options = [];
+        if ($usePassword) {
+            $options['parameters']['password'] = $password;
+        }
+        $this->predis = new Client($params, $options);
     }
 
     public function getDatabases()
