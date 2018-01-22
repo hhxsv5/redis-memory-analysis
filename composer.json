@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "ext-redis": ">=2.8.0",
+    "ext-redis": ">=2.2.8",
     "predis/predis": "~1.1.0"
   },
   "autoload": {
